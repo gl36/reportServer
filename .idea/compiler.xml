@@ -6,12 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="report-job-admin" />
-        <module name="report-server" />
+        <module name="datax-core" />
+        <module name="datax-admin" />
         <module name="report-job-core" />
+        <module name="datax-assembly" />
+        <module name="report-server" />
+        <module name="datax-rpc" />
+        <module name="report-job-admin" />
+        <module name="datax-executor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="datax-admin" target="1.8" />
+      <module name="datax-assembly" target="1.8" />
+      <module name="datax-core" target="1.8" />
+      <module name="datax-executor" target="1.8" />
+      <module name="datax-rpc" target="1.8" />
       <module name="report-job-admin" target="1.8" />
       <module name="report-job-core" target="1.8" />
       <module name="report-server" target="1.8" />
@@ -20,7 +30,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="report-server" options="-extdirs E:\reportServer\report-server/lib" />
+      <module name="report-server" options="-extdirs D:\project\reportServer\report-server/lib" />
     </option>
   </component>
 </project>

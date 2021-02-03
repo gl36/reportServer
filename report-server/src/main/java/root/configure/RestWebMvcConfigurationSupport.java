@@ -63,7 +63,7 @@ public class RestWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/reportServer/**")
-                .allowedOriginPatterns("*")
+                .allowedOrigins("*")
                 .allowCredentials(true)
                 .allowedMethods("GET", "POST", "DELETE", "PUT")
                 .maxAge(36000);

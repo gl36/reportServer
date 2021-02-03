@@ -1,0 +1,90 @@
+[DEBUG] [2021-02-03 21:36:14][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[INFO] [2021-02-03 21:36:15][root.report.db.DbManager]初始化数据库【form】耗时2.0747s
+[DEBUG] [2021-02-03 23:13:29][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[INFO] [2021-02-03 23:13:29][root.report.db.DbManager]初始化数据库【form】耗时1.8466s
+[DEBUG] [2021-02-03 23:14:12][root.report.auth.UserController]调用服务：/user/login
+[DEBUG] [2021-02-03 23:14:12][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@3ee56942] will not be managed by Spring
+[DEBUG] [2021-02-03 23:14:12][formUser.getUserInfoByUserId]==>  Preparing: select t._id,t.user_id,t.user_name,t.creation_date,DATE_FORMAT(t.start_date,'%Y-%m-%d') start_date,DATE_FORMAT(t.end_date,'%Y-%m-%d') end_date,t.description, t.isAdmin,t.import,t.encrypted_user_password,t.icon from fnd_user t where t.user_name=?
+[DEBUG] [2021-02-03 23:14:12][formUser.getUserInfoByUserId]==> Parameters: system(String)
+[DEBUG] [2021-02-03 23:14:12][formUser.getUserInfoByUserId]<==      Total: 1
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][chat]Cache Hit Ratio [chat]: 0.0
+[DEBUG] [2021-02-03 23:14:13][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@3ee56942] will not be managed by Spring
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]==>  Preparing: insert into sys_api_log(api_code,client,begin_time,end_time,in_param) values (?,?,str_to_date(?,'%Y%m%d%H%i%s'),str_to_date(?,'%Y%m%d%H%i%s'), ?)
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]==> Parameters: //reportServer/appConfig/getWebAppTitle(String), {"remoteIP":"0:0:0:0:0:0:0:1"}(String), 20210203231413(String), 20210203231413(String), (String)
+[DEBUG] [2021-02-03 23:14:13][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@7dd386cd] will not be managed by Spring
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 0(Integer)
+[DEBUG] [2021-02-03 23:14:13][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@a499a] will not be managed by Spring
+[DEBUG] [2021-02-03 23:14:13][chat.getchatInfoByID_COUNT]==>  Preparing: SELECT count(0) FROM ai_chat_message WHERE (from_userId = ? AND to_userId = ?) OR (from_userId = ? AND to_userId = ?)
+[DEBUG] [2021-02-03 23:14:13][chat.getchatInfoByID_COUNT]==> Parameters: 506(Integer), 0(String), 0(String), 506(Integer)
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 9
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1000(Integer)
+[DEBUG] [2021-02-03 23:14:13][chat.getchatInfoByID_COUNT]<==      Total: 1
+[DEBUG] [2021-02-03 23:14:13][chat]Cache Hit Ratio [chat]: 0.0
+[DEBUG] [2021-02-03 23:14:13][chat.getchatInfoByID]==>  Preparing: SELECT * from ai_chat_message where (from_userId = ? and to_userId =?) or (from_userId = ? and to_userId =?) ORDER BY message_id desc LIMIT ?
+[DEBUG] [2021-02-03 23:14:13][chat.getchatInfoByID]==> Parameters: 506(Integer), 0(String), 0(String), 506(Integer), 1000(Integer)
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 1
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1009(Integer)
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]<==    Updates: 1
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 2
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1130(Integer)
+[DEBUG] [2021-02-03 23:14:13][chat.getchatInfoByID]<==      Total: 23
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 5
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1010(Integer)
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]==>  Preparing: insert into sys_api_log(api_code,client,begin_time,end_time,in_param) values (?,?,str_to_date(?,'%Y%m%d%H%i%s'),str_to_date(?,'%Y%m%d%H%i%s'), ?)
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]==> Parameters: //reportServer/chat/getChatByuserID(String), {"remoteIP":"0:0:0:0:0:0:0:1"}(String), 20210203231413(String), 20210203231413(String), {"from_userId":506,"to_userId":"0","pageNumd":1,"perPaged":1000}(String)
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 3
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1139(Integer)
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 6
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1011(Integer)
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 4
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1001(Integer)
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 2
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1002(Integer)
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]<==    Updates: 1
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 5
+[DEBUG] [2021-02-03 23:14:13][auth]Cache Hit Ratio [auth]: 0.0
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==>  Preparing: select * from fnd_func f inner join (SELECT DISTINCT a.func_id from fnd_auth a inner join (select u.role_id from fnd_user_role u where u.user_id=?) as b on a.role_id=b.role_id where a.auth_type='webFunc')as r on f.func_id=r.func_id where f.func_type='reactWeb' and f.func_pid=? order by f.order,f.func_id asc
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]==> Parameters: 506(Integer), 1003(Integer)
+[DEBUG] [2021-02-03 23:14:13][auth.getMenuByUserId]<==      Total: 8
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]==>  Preparing: insert into sys_api_log(api_code,client,begin_time,end_time,in_param) values (?,?,str_to_date(?,'%Y%m%d%H%i%s'),str_to_date(?,'%Y%m%d%H%i%s'), ?)
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]==> Parameters: /reportServer/auth/getMenuListNew(String), {"remoteIP":"0:0:0:0:0:0:0:1"}(String), 20210203231413(String), 20210203231413(String), {"userId":506}(String)
+[DEBUG] [2021-02-03 23:14:13][system.insertSysApiLog]<==    Updates: 1
+[DEBUG] [2021-02-03 23:15:09][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@7dd386cd] will not be managed by Spring
+[DEBUG] [2021-02-03 23:15:09][mysqlmetadata.statisticsAllRecordsNumber]==>  Preparing: SELECT SUM(data_count) as totalnum FROM bd_table
+[DEBUG] [2021-02-03 23:15:09][mysqlmetadata.statisticsAllRecordsNumber]==> Parameters: 
+[DEBUG] [2021-02-03 23:15:09][mysqlmetadata.statisticsAllRecordsNumber]<==      Total: 1
+[DEBUG] [2021-02-03 23:15:09][system.insertSysApiLog]==>  Preparing: insert into sys_api_log(api_code,client,begin_time,end_time,in_param) values (?,?,str_to_date(?,'%Y%m%d%H%i%s'),str_to_date(?,'%Y%m%d%H%i%s'), ?)
+[DEBUG] [2021-02-03 23:15:09][system.insertSysApiLog]==> Parameters: //reportServer/DBConnection2/statisticsAllRecordsNumber(String), {"remoteIP":"0:0:0:0:0:0:0:1"}(String), 20210203231509(String), 20210203231509(String), {}(String)
+[DEBUG] [2021-02-03 23:15:10][system.insertSysApiLog]<==    Updates: 1
+[DEBUG] [2021-02-03 23:15:10][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@7dd386cd] will not be managed by Spring
+[DEBUG] [2021-02-03 23:15:10][system.insertSysApiLog]==>  Preparing: insert into sys_api_log(api_code,client,begin_time,end_time,in_param) values (?,?,str_to_date(?,'%Y%m%d%H%i%s'),str_to_date(?,'%Y%m%d%H%i%s'), ?)
+[DEBUG] [2021-02-03 23:15:10][system.insertSysApiLog]==> Parameters: //reportServer/DBConnection/ListAll(String), {"remoteIP":"0:0:0:0:0:0:0:1"}(String), 20210203231510(String), 20210203231510(String), (String)
+[DEBUG] [2021-02-03 23:15:10][org.mybatis.spring.transaction.SpringManagedTransaction]JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@a499a] will not be managed by Spring
+[DEBUG] [2021-02-03 23:15:10][mqtttask.getListPage_COUNT]==>  Preparing: SELECT count(0) FROM mqtt_task bd WHERE 1 = 1
+[DEBUG] [2021-02-03 23:15:10][mqtttask.getListPage_COUNT]==> Parameters: 
+[DEBUG] [2021-02-03 23:15:10][mqtttask.getListPage_COUNT]<==      Total: 1
+[DEBUG] [2021-02-03 23:15:10][mqtttask.getListPage]==>  Preparing: SELECT bd.* FROM mqtt_task bd where 1=1 LIMIT ?
+[DEBUG] [2021-02-03 23:15:10][mqtttask.getListPage]==> Parameters: 10(Integer)
+[DEBUG] [2021-02-03 23:15:10][mqtttask.getListPage]<==      Total: 8
+[DEBUG] [2021-02-03 23:15:10][system.insertSysApiLog]==>  Preparing: insert into sys_api_log(api_code,client,begin_time,end_time,in_param) values (?,?,str_to_date(?,'%Y%m%d%H%i%s'),str_to_date(?,'%Y%m%d%H%i%s'), ?)
+[DEBUG] [2021-02-03 23:15:10][system.insertSysApiLog]==> Parameters: //reportServer/mqttTask/getMqttTaskList(String), {"remoteIP":"0:0:0:0:0:0:0:1"}(String), 20210203231510(String), 20210203231510(String), {"startIndex":1,"perPage":10,"topic":"","clientinid":""}(String)
+[DEBUG] [2021-02-03 23:15:10][system.insertSysApiLog]<==    Updates: 1
+[DEBUG] [2021-02-03 23:15:10][system.insertSysApiLog]<==    Updates: 1
