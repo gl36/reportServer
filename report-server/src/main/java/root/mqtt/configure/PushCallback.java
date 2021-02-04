@@ -24,14 +24,14 @@ public class PushCallback implements MqttCallback,MqttCallbackExtended {
     private MqttPushClient mqttPushClient;
 
     public PushCallback(MqttClient client,MqttConnectOptions options,  int qos,Map paramMap,MqttTaskService mqttTaskService,MqttPushClient mqttPushClient ) {
-            this.client= client;
-            this.options=options;
-            this.clientinid=client.getClientId();
-            this.qos=qos;
-            this.paramMap=paramMap;
-            this.mqttTaskService=mqttTaskService;
-            this.topic=paramMap.get("topic").toString();
-            this.mqttPushClient =mqttPushClient;
+        this.client= client;
+        this.options=options;
+        this.clientinid=client.getClientId();
+        this.qos=qos;
+        this.paramMap=paramMap;
+        this.mqttTaskService=mqttTaskService;
+        this.topic=paramMap.get("topic").toString();
+        this.mqttPushClient =mqttPushClient;
     }
 
     @Override
@@ -128,10 +128,12 @@ public class PushCallback implements MqttCallback,MqttCallbackExtended {
                         Integer newId = sqlSession.selectOne("mqtttask.getMaxId");
                         newId = newId == null ? 1 : newId;
                         sv.append("'" + newId + "',");
-                    }else{
+                    }else if(!entry.getKey().equals("messagetext") && !entry.getKey().equals("message_create_date")){
                         sv.append("'" + entry.getValue() + "',");
                     }
                 }
+                sb.append("`messagetext`,`message_create_date`,");
+                sv.append("'" + message + "',current_timestamp(6),");
                 String targetTable=paramMap.get("targetTable").toString().trim();
 
                 insertSql = "insert into `"+targetTable+"` (" + sb.deleteCharAt(sb.length() - 1) + ")values(" + sv.deleteCharAt(sv.length() - 1) + ")";
