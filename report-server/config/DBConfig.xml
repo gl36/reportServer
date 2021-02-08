@@ -104,13 +104,13 @@
    <!--      <minPoolSize>3</minPoolSize> -->  
    <!--   </DB> -->  
    <DB> 
-      <name>saaa</name>  
-      <driver>com.mysql.cj.jdbc.Driver</driver>  
-      <dbtype>Mysql</dbtype>  
-      <url>jdbc:mysql://127.0.0.1:3306/jlerp</url>  
+      <name>dpass_data</name>
+      <driver>com.taosdata.jdbc.TSDBDriver</driver>
+      <dbtype>TAOS</dbtype>
+      <url>jdbc:TAOS://47.97.65.233:6030/dpass_data</url>
       <username>root</username>  
-      <password>v600KuCLNBc=</password>  
-      <maxPoolSize>50</maxPoolSize>  
+      <password>qmE6cBaysODulh7pCCWmjg==</password>
+      <maxPoolSize>65480</maxPoolSize>
       <minPoolSize>3</minPoolSize> 
    </DB>  
    <DB> 
