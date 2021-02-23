@@ -24,14 +24,14 @@ public class PushCallback implements MqttCallback,MqttCallbackExtended {
     private MqttPushClient mqttPushClient;
 
     public PushCallback(MqttClient client,MqttConnectOptions options,  int qos,Map paramMap,MqttTaskService mqttTaskService,MqttPushClient mqttPushClient ) {
-        this.client= client;
-        this.options=options;
-        this.clientinid=client.getClientId();
-        this.qos=qos;
-        this.paramMap=paramMap;
-        this.mqttTaskService=mqttTaskService;
-        this.topic=paramMap.get("topic").toString();
-        this.mqttPushClient =mqttPushClient;
+            this.client= client;
+            this.options=options;
+            this.clientinid=client.getClientId();
+            this.qos=qos;
+            this.paramMap=paramMap;
+            this.mqttTaskService=mqttTaskService;
+            this.topic=paramMap.get("topic").toString();
+            this.mqttPushClient =mqttPushClient;
     }
 
     @Override

@@ -74,6 +74,12 @@ public class ModelTableService {
         Integer count = Integer.parseInt(sqlSession.selectOne("bdmodelTable.countTable",map));
         if(count==0) {
             map.put("table_title",jsonObject.getString("table_title"));//注释
+
+            map.put("dbtype_id",jsonObject.getString("dbtype_id"));//注释
+            map.put("source_id",jsonObject.getString("source_id"));//注释
+            map.put("host_id",jsonObject.getString("host_id"));//注释
+            map.put("url",jsonObject.getString("url"));//注释
+            map.put("catalog_id",jsonObject.getString("catalog_id"));
             map.put("update_by",user.getId());
             String tableName = jsonObject.getString("table_name");
             String dbType=model.get("db_type").toString();
@@ -124,7 +130,7 @@ public class ModelTableService {
                             sb.append(" PRIMARY KEY (" + sbprimarykeys.deleteCharAt(sbprimarykeys.length() - 1) + "),");
                         }
                         createSql = "create table `" + jsonObject.getString("table_name").trim() + "` (" + sb.deleteCharAt(sb.length() - 1) + ")";
-                        // map.put("table_ddl", createSql);//SQL预览
+                       // map.put("table_ddl", createSql);//SQL预览
                     }
 
                 }else  if("hive".equalsIgnoreCase(dbType)) {
@@ -143,11 +149,11 @@ public class ModelTableService {
                     }
                     maphive.put("tableFields",objectList.toString());
 //                    try {
-                    createSql=dataModelingService.createHiveTable(maphive);
-                    if(!createSql.equals("建表失败")){
-                        // map.put("table_ddl", createSql);//SQL预览
-                        map.put("table_ddl", "SQL包含逗号需要处理");
-                    }
+                        createSql=dataModelingService.createHiveTable(maphive);
+                        if(!createSql.equals("建表失败")){
+                           // map.put("table_ddl", createSql);//SQL预览
+                            map.put("table_ddl", "SQL包含逗号需要处理");
+                        }
 //                    }catch (Exception e){
 //                        e.printStackTrace();
 //                    }
@@ -177,11 +183,11 @@ public class ModelTableService {
                             maphabse.put("primaryKey", objectList.get(0).getString("fieldName"));
                         }
 //                        try {
-                        createSql=dataModelingService.createHbaseTable2(maphabse);
-                        if(!createSql.equals("建表失败")){
-                            // map.put("table_ddl", createSql);//SQL预览
-                            map.put("table_ddl", "SQL包含逗号需要处理");
-                        }
+                            createSql=dataModelingService.createHbaseTable2(maphabse);
+                            if(!createSql.equals("建表失败")){
+                                // map.put("table_ddl", createSql);//SQL预览
+                                map.put("table_ddl", "SQL包含逗号需要处理");
+                            }
                        /* }catch (Exception e){
                             e.printStackTrace();
                         }*/
@@ -230,11 +236,11 @@ public class ModelTableService {
                     for(int ii=0;ii<deleteColumnList.size();ii++) {
                         JSONObject obj = deleteColumnList.getJSONObject(ii);
                         if (null != obj.getString("id") && !"".equalsIgnoreCase(obj.getString("id")) && !obj.getString("id").contains("xxx")) {
-                            String delteSql=" ALTER TABLE "+tableName+" DROP COLUMN `"+ obj.getString("column_name")+"`";
-                            sqlSession.update("bdTableColumn.updateTableColumnForDB", delteSql);
-                            Map delColMap=new HashMap();
+                           String delteSql=" ALTER TABLE "+tableName+" DROP COLUMN `"+ obj.getString("column_name")+"`";
+                           sqlSession.update("bdTableColumn.updateTableColumnForDB", delteSql);
+                           Map delColMap=new HashMap();
                             delColMap.put("id",obj.getString("id"));
-                            sqlSession.delete("bdTableColumn.deleteBdTableColumnByColId", delColMap);
+                           sqlSession.delete("bdTableColumn.deleteBdTableColumnByColId", delColMap);
                         }
                     }
                 }
@@ -286,7 +292,7 @@ public class ModelTableService {
                             sb.append(",");
                         });
                         createSql = "create table " + jsonObject.getString("table_name") + "(" + sb.deleteCharAt(sb.length() - 1) + ")";
-                        // map.put("table_ddl", createSql);//SQL预览
+                       // map.put("table_ddl", createSql);//SQL预览
                     }
                     sqlSession.update("bdmodelTable.updateBdTable", map);
                 }else  if("hive".equalsIgnoreCase(dbType)) {
@@ -304,7 +310,7 @@ public class ModelTableService {
                         });
                     }
                     maphive.put("tableFields",objectList.toString());
-                    // dataModelingService.createHiveTable(maphive);
+                   // dataModelingService.createHiveTable(maphive);
                 }
                 String tableId = jsonObject.getString("table_id");
                 /**
