@@ -15,6 +15,7 @@ import com.xxl.job.core.util.IpUtil;
 import com.xxl.job.core.util.ThrowableUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import root.report.datastorage.taos.TaosService;
 
 import java.util.Date;
 
@@ -25,6 +26,7 @@ import java.util.Date;
 public class XxlJobTrigger {
     private static Logger logger = LoggerFactory.getLogger(XxlJobTrigger.class);
 
+    private static TaosService taosService = new TaosService();
     /**
      * trigger job
      *
@@ -213,6 +215,8 @@ public class XxlJobTrigger {
             logger.error(">>>>>>>>>>> xxl-job trigger error, please check if the executor[{}] is running.", address, e);
             runResult = new ReturnT<String>(ReturnT.FAIL_CODE, ThrowableUtil.toString(e));
         }
+        /***案例**/
+        taosService.getTableAndColumnList("form");
 
         StringBuffer runResultSB = new StringBuffer(I18nUtil.getString("jobconf_trigger_run") + "：");
         runResultSB.append("<br>address：").append(address);
